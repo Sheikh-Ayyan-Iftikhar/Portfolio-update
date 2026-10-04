@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheikh Ayyan Iftikhar | Python & Full-Stack Developer</title>
+<meta name="description" content="Sheikh Ayyan Iftikhar — Python & Full-Stack Developer, Former Co-Founder &amp; CTO of AperaBoost, Former Co-Founder of Markaaf Studio. Building fast, responsive, modern web experiences.">
+<meta name="keywords" content="Frontend Developer, Full-Stack Developer, Python Developer, React, Next.js, TypeScript, Web Development">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sheikh Ayyan Iftikhar | Python & Full-Stack Developer">
+<meta property="og:description" content="Building fast, responsive, modern web experiences. Former Co-Founder &amp; CTO of AperaBoost.">
+<meta property="og:image" content="assets/profile.png">
+<meta property="og:url" content="https://github.com/Sheikh-Ayyan-Iftikhar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sheikh Ayyan Iftikhar | Python & Full-Stack Developer">
+<meta name="twitter:description" content="Building fast, responsive, modern web experiences. Former Co-Founder &amp; CTO of AperaBoost.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+<canvas id="bgCanvas"></canvas>
+<div class="ambient-glow g1"></div>
+<div class="ambient-glow g2"></div>
+<div class="ambient-glow g3"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><img src="assets/profile.png" alt="Sheikh Ayyan Iftikhar" class="brand-logo"></span>
+      <span class="brand-text"><span>Sheikh Ayyan Iftikhar</span><small id="pathLine">~/ayyan</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="journey.html">Experience</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="journey.html#education">Education</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="assets/resume/sheikh-ayyan-iftikhar-resume.pdf" download class="btn btn-ghost btn-sm resume-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg> Resume</a>
+      <a href="contact.html" class="btn btn-glow btn-sm nav-cta">Let's Talk</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="menu-scrim" id="menuScrim"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="journey.html">Experience</a>
+  <a href="skills.html">Skills</a>
+  <a href="projects.html">Projects</a>
+  <a href="journey.html#education">Education</a>
+  <a href="contact.html">Contact</a>
+  <a href="services.html">Services</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="certificates.html">Certificates</a>
+  <a href="contact.html" class="mobile-resume" style="justify-content:center;">Let's Talk</a>
+  <a href="assets/resume/sheikh-ayyan-iftikhar-resume.pdf" download class="mobile-resume"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg> Download Resume</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-content">
+      <div class="hero-tag reveal"><span class="pulse"></span> Available for Freelance & Full-time</div>
+      <h1 class="reveal">Hi, I'm <span class="grad">Sheikh Ayyan Iftikhar</span></h1>
+      <div class="hero-roles reveal">
+        <div class="role-line"><b>Former Co-Founder &amp; CTO</b> — AperaBoost <span class="dot"></span> <b>Former Co-Founder</b> — Markaaf Studio</div>
+        <div class="role-type"><span id="roleText">Python &amp; Full-Stack Developer</span><span class="type-cursor">|</span></div>
+      </div>
+      <p class="intro reveal">I build fast, responsive, and modern web experiences with a strong foundation in Python &amp; Full-Stack development. Along the way I've co-founded two ventures, worked freelance with clients, and completed a frontend internship at Internee.pk.</p>
+      <div class="hero-actions reveal">
+        <a href="projects.html" class="btn btn-glow">View My Projects</a>
+        <a href="contact.html" class="btn btn-ghost">Let's Work Together</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat"><b data-count="14">14+</b><span>Live Websites Shipped for Clients</span></div>
+      </div>
+    </div>
+
+    <div class="stage reveal">
+      <div class="stage-inner" id="stageInner">
+        <div class="ring"></div>
+        <div class="portrait-frame">
+          <img class="hero-img" src="assets/profile.png" alt="Sheikh Ayyan Iftikhar — Python & Full-Stack Developer">
+        </div>
+        <div class="float-card c1" style="--z:60px;" data-label="Python"><span></span></div>
+        <div class="float-card c2" style="--z:80px;" data-label="React"><span></span></div>
+        <div class="float-card c3" style="--z:40px;" data-label="TypeScript"><span></span></div>
+        <div class="float-card c4" style="--z:50px;" data-label="Next.js"><span></span></div>
+        <div class="float-card c5" style="--z:70px;" data-label="Tailwind"><span></span></div>
+        <div class="float-card c6" style="--z:45px;" data-label="Git"><span></span></div>
+        <div class="avail-badge"><span class="g"></span> Open to work</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="scroll-indicator reveal">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ================= QUICK ABOUT ================= -->
+<section class="section-tight" id="about-strip">
+  <div class="wrap">
+    <div class="about-grid-3d">
+      <div class="glass about-card-3d reveal">
+        <div class="about-card-inner">
+          <div class="about-icon-3d">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <h3>Who I Am</h3>
+          <p>Python & Full-Stack Developer focused on building responsive websites, modern interfaces, and high-quality digital experiences. I write clean, maintainable code with a focus on performance and user experience.</p>
+        </div>
+      </div>
+      
+      <div class="glass about-card-3d reveal">
+        <div class="about-card-inner">
+          <div class="about-icon-3d">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <h3>Current Roles</h3>
+          <p><strong style="color:var(--blue-light);">Former Co-Founder &amp; CTO</strong> at <strong>AperaBoost</strong> — led the technical direction, building systems, products and client solutions.<br><br><strong style="color:var(--violet);">Former Co-Founder</strong> at <strong>Markaaf Studio</strong> — co-founded a digital studio with a strong product focus.</p>
+        </div>
+      </div>
+      
+      <div class="glass about-card-3d reveal">
+        <div class="about-card-inner">
+          <div class="about-icon-3d">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <h3>Background</h3>
+          <p>Student at <strong>SMIT</strong> with hands-on project experience. Completed a <strong>Frontend Development Internship</strong> at <strong>Internee.pk</strong>. Started freelancing, then co-founded ventures while continuously sharpening my craft.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass code-window-3d reveal">
+      <div class="code-bar"><span></span><span></span><span></span></div>
+      <div class="code-body">
+        <div><span class="k">const</span> developer = {</div>
+        <div>&nbsp;&nbsp;name: <span class="s">'Sheikh Ayyan Iftikhar'</span>,</div>
+        <div>&nbsp;&nbsp;role: <span class="s">'Python & Full-Stack Developer'</span>,</div>
+        <div>&nbsp;&nbsp;stack: [<span class="s">'React'</span>, <span class="s">'Next.js'</span>, <span class="s">'TypeScript'</span>, <span class="s">'Python'</span>, <span class="s">'Tailwind'</span>],</div>
+        <div>&nbsp;&nbsp;founder: [<span class="s">'AperaBoost'</span>, <span class="s">'Markaaf Studio'</span>],</div>
+        <div>&nbsp;&nbsp;focus: <span class="f">buildAmazingThings</span>()</div>
+        <div>};</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE ME ================= -->
+<section class="section" id="why" style="background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Why Choose Me</div>
+      <h2>What Sets My Work <span class="grad">Apart</span></h2>
+    </div>
+    <div class="cards-grid-4" id="whyGrid"></div>
+  </div>
+</section>
+
+<!-- ================= FEATURED PROJECTS PREVIEW ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Featured Work</div>
+      <h2>Some Projects <span class="grad">I've Shipped</span></h2>
+      <p>Live, deployed builds — visit the Projects page for the full list with 3D interactions.</p>
+    </div>
+    <div class="projects-grid-3d" id="projectsGridPreview"></div>
+    <div style="text-align:center; margin-top:40px;" class="reveal">
+      <a href="projects.html" class="btn btn-ghost">View All Projects →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section-tight">
+  <div class="wrap">
+    <div class="glass cta-band reveal">
+      <h2>Let's Build Something Amazing Together</h2>
+      <p>Have a project in mind? I'm currently available for freelance work and full-time opportunities.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-glow">Go to Contact Page</a>
+        <a href="mailto:ayaniftikhar4567@gmail.com" class="btn btn-ghost">Email Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer-3d">
+  <div class="wrap footer-grid">
+    <div class="footer-brand footer-panel-3d" data-tilt style="--tilt-x:0deg;--tilt-y:0deg">
+      <span class="brand-cube-3d" aria-hidden="true">
+        <span class="fc-front">AI</span>
+        <span class="fc-back">AI</span>
+        <span class="fc-right"></span>
+        <span class="fc-left"></span>
+      </span>
+      <h3>Sheikh Ayyan Iftikhar</h3>
+      <p>Python &amp; Full-Stack Developer building fast, responsive, modern web experiences. Former Co-Founder &amp; CTO at AperaBoost, Former Co-Founder at Markaaf Studio.</p>
+      <div class="socials">
+        <a href="https://github.com/ayaniftikhar8" target="_blank" rel="noopener" class="social-ic-3d" aria-label="GitHub profile" data-icon="github"></a>
+        <a href="https://www.facebook.com/AyanIftikhar.dev/" target="_blank" rel="noopener" class="social-ic-3d" aria-label="Facebook profile" data-icon="facebook"></a>
+        <a href="https://x.com/AYAN__Iftikhar" target="_blank" rel="noopener" class="social-ic-3d" aria-label="X profile" data-icon="x"></a>
+        <a href="mailto:ayaniftikhar4567@gmail.com" class="social-ic-3d" aria-label="Email me" data-icon="mail"></a>
+      </div>
+    </div>
+    <div class="footer-col footer-panel-3d" data-tilt style="--tilt-x:0deg;--tilt-y:0deg">
+      <b>Navigate</b>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="journey.html">Experience</a>
+      <a href="journey.html#education">Education</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col footer-panel-3d" data-tilt style="--tilt-x:0deg;--tilt-y:0deg">
+      <b>More</b>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="assets/resume/sheikh-ayyan-iftikhar-resume.pdf" download>Download Resume</a>
+      <a href="mailto:ayaniftikhar4567@gmail.com">Email Me</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom" data-tilt style="--tilt-x:0deg">
+    <span>&copy; <span id="year"></span> Sheikh Ayyan Iftikhar. Designed &amp; built by me.</span>
+    <span>Karachi, Pakistan &middot; Available remotely &middot; <a href="mailto:ayaniftikhar4567@gmail.com">ayaniftikhar4567@gmail.com</a></span>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

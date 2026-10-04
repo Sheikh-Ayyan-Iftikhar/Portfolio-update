@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificates — Sheikh Ayyan Iftikhar | Frontend Developer</title>
+<meta name="description" content="Verified certificates and credentials earned by Sheikh Ayyan Iftikhar, Frontend Developer — including the Internee.pk HTML, CSS & JavaScript internship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+<canvas id="bgCanvas"></canvas>
+<div class="ambient-glow g1"></div>
+<div class="ambient-glow g2"></div>
+<div class="ambient-glow g3"></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><img src="assets/profile.png" alt="Sheikh Ayyan Iftikhar" class="brand-logo"></span>
+      <span class="brand-text"><span>Sheikh Ayyan Iftikhar</span><small id="pathLine">~/ayyan</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+
+      <div class="nav-dropdown">
+        <a href="about.html" class="dropdown-trigger">About <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="dropdown-panel">
+          <div class="dropdown-panel-inner">
+            <a href="about.html">About Me</a>
+            <a href="skills.html">Skills</a>
+            <a href="journey.html">Journey</a>
+            <a href="certificates.html">Certificates</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="projects.html" class="dropdown-trigger">Work <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="dropdown-panel">
+          <div class="dropdown-panel-inner">
+            <a href="projects.html">Projects</a>
+            <a href="services.html">Services</a>
+            <a href="reviews.html">Reviews</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="assets/resume/sheikh-ayyan-iftikhar-resume.pdf" download class="btn btn-ghost btn-sm resume-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg> Resume</a>
+      <a href="contact.html" class="btn btn-glow btn-sm nav-cta">Let's Talk</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="menu-scrim" id="menuScrim"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <span class="mobile-menu-group-label">About</span>
+  <a href="about.html" class="mobile-sub">About Me</a>
+  <a href="skills.html" class="mobile-sub">Skills</a>
+  <a href="journey.html" class="mobile-sub">Journey</a>
+  <a href="certificates.html" class="mobile-sub">Certificates</a>
+  <span class="mobile-menu-group-label">Work</span>
+  <a href="projects.html" class="mobile-sub">Projects</a>
+  <a href="services.html" class="mobile-sub">Services</a>
+  <a href="reviews.html" class="mobile-sub">Reviews</a>
+  <a href="contact.html">Contact</a>
+  <a href="assets/resume/sheikh-ayyan-iftikhar-resume.pdf" download class="mobile-resume"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg> Download Resume</a>
+</div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb reveal">home <b>/</b> certificates</div>
+    <div class="eyebrow reveal">Certificates</div>
+    <h1 class="reveal">Verified <span class="grad">credentials</span></h1>
+    <p class="reveal">Certificates I've earned along the way — click any thumbnail to view the full, original file.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="certificates-grid" id="certificatesGrid"></div>
+  </div>
+</section>
+
+<section class="section-tight" style="background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <div class="glass cta-band reveal">
+      <h2>Want the full picture?</h2>
+      <p>See the education and experience these credentials fit into.</p>
+      <div class="cta-actions">
+        <a href="journey.html" class="btn btn-glow">View My Journey</a>
+        <a href="contact.html" class="btn btn-ghost">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-3d">
+  <div class="wrap footer-grid">
+    <div class="footer-brand footer-panel-3d" data-tilt style="--tilt-x:0deg;--tilt-y:0deg">
+      <span class="brand-cube-3d" aria-hidden="true">
+        <span class="fc-front">AI</span>
+        <span class="fc-back">AI</span>
+        <span class="fc-right"></span>
+        <span class="fc-left"></span>
+      </span>
+      <h3>Sheikh Ayyan Iftikhar</h3>
+      <p>Python &amp; Full-Stack Developer building fast, responsive, modern web experiences. Former Co-Founder &amp; CTO at AperaBoost, Former Co-Founder at Markaaf Studio.</p>
+      <div class="socials">
+        <a href="https://github.com/ayaniftikhar8" target="_blank" rel="noopener" class="social-ic-3d" aria-label="GitHub profile" data-icon="github"></a>
+        <a href="https://www.facebook.com/AyanIftikhar.dev/" target="_blank" rel="noopener" class="social-ic-3d" aria-label="Facebook profile" data-icon="facebook"></a>
+        <a href="https://x.com/AYAN__Iftikhar" target="_blank" rel="noopener" class="social-ic-3d" aria-label="X profile" data-icon="x"></a>
+        <a href="mailto:ayaniftikhar4567@gmail.com" class="social-ic-3d" aria-label="Email me" data-icon="mail"></a>
+      </div>
+    </div>
+    <div class="footer-col footer-panel-3d" data-tilt style="--tilt-x:0deg;--tilt-y:0deg">
+      <b>Navigate</b>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="journey.html">Experience</a>
+      <a href="journey.html#education">Education</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col footer-panel-3d" data-tilt style="--tilt-x:0deg;--tilt-y:0deg">
+      <b>More</b>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="assets/resume/sheikh-ayyan-iftikhar-resume.pdf" download>Download Resume</a>
+      <a href="mailto:ayaniftikhar4567@gmail.com">Email Me</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom" data-tilt style="--tilt-x:0deg">
+    <span>&copy; <span id="year"></span> Sheikh Ayyan Iftikhar. Designed &amp; built by me.</span>
+    <span>Karachi, Pakistan &middot; Available remotely &middot; <a href="mailto:ayaniftikhar4567@gmail.com">ayaniftikhar4567@gmail.com</a></span>
+  </div>
+</footer>
+
+<!-- Lightbox for full-size certificate viewing -->
+<div class="lightbox-overlay" id="certificateLightbox">
+  <div class="lightbox-content">
+    <button type="button" class="lightbox-close" aria-label="Close"></button>
+    <img class="lightbox-img" src="" alt="">
+    <p class="lightbox-caption"></p>
+  </div>
+</div>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>
