@@ -78,3 +78,24 @@ WebGL, live project links, inert dead socials, card tilt producing a real
 `matrix3d` transform, sticky About heading, certifications, `sr-only` text,
 image `alt` coverage, desktop/mobile overflow, mobile-menu focus handling, and
 reduced motion.
+
+## Deployment
+
+| | |
+|---|---|
+| Production | https://portfolio-react-pi-three.vercel.app |
+| Vercel project | `portfolio-react` (Vite) |
+| Repository | `Sheikh-Ayyan-Iftikhar/Portfolio-update` |
+| Production branch | `main` |
+
+The Vercel project is connected to the GitHub repository, so pushing to `main`
+builds and deploys automatically. A manual deploy, if ever needed:
+
+```bash
+vercel deploy --prod
+```
+
+One production domain is enough: `portfolio-react-pi-three.vercel.app` is
+referenced by the canonical URL and the Open Graph / Twitter image tags in
+`index.html`. If the project is ever renamed or given a custom domain, update
+those three tags and redeploy — social previews cache the old URL.
