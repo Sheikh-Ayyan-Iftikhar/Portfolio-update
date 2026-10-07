@@ -1,13 +1,12 @@
-import { lazy, Suspense, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
-import Hero from './components/Hero.jsx';
-import About from './components/About.jsx';
-import Skills from './components/Skills.jsx';
-import Projects from './components/Projects.jsx';
-import Experience from './components/Experience.jsx';
-import Services from './components/Services.jsx';
-import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import Home from './pages/Home.jsx';
+import ProjectsPage from './pages/ProjectsPage.jsx';
+import JourneyPage from './pages/JourneyPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 // only pull these in once the curtain has lifted
 const CustomCursor = lazy(() => import('./components/CustomCursor.jsx'));
@@ -23,6 +22,27 @@ function SkipLink() {
       Skip to content
     </a>
   );
+}
+
+/**
+ * A client-side navigation does not reset scroll the way a document load
+ * does, so without this every route change lands halfway down the new page.
+ */
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      // let the target render before scrolling to it
+      requestAnimationFrame(() => {
+        document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+      });
+      return;
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname, hash]);
+
+  return null;
 }
 
 export default function App() {
@@ -51,16 +71,17 @@ export default function App() {
         <div className="absolute bottom-[-14%] right-[-10%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(closest-side,rgba(139,92,246,0.08),transparent)] blur-3xl" />
       </div>
 
+      <ScrollToTop />
       <Navbar />
 
       <main id="main">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Services />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/journey" element={<JourneyPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
 
       <Footer />

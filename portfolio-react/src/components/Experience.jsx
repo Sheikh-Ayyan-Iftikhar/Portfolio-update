@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { Award } from 'lucide-react';
 import { Section, SectionHeading } from './Section.jsx';
+import CertificateCard from './CertificateCard.jsx';
 import { experience, education, certifications } from '../data/journey.js';
 import { EASE, viewportOnce } from '../lib/motion.js';
 
@@ -53,8 +53,6 @@ function Entry({ item, index, last }) {
 }
 
 export default function Experience() {
-  const reduce = useReducedMotion();
-
   return (
     <Section id="journey" className="border-t border-line-soft">
       <SectionHeading
@@ -90,28 +88,11 @@ export default function Experience() {
               <h3 className="mt-14 font-display text-[0.7rem] tracking-[0.22em] text-mist-600 uppercase">
                 Certifications
               </h3>
-              <ul className="mt-8 space-y-3">
+<ul className="mt-8 space-y-4">
                 {certifications.map((c, i) => (
-                  <motion.li
-                    key={c.id}
-                    initial={reduce ? undefined : { opacity: 0, y: 18 }}
-                    whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-                    viewport={viewportOnce}
-                    transition={reduce ? undefined : { duration: 0.6, ease: EASE, delay: i * 0.07 }}
-                    className="flex items-start gap-3.5 rounded-xl border border-line bg-ink-850/50 p-4"
-                  >
-                    <Award
-                      size={17}
-                      className="mt-0.5 shrink-0 text-accent-400"
-                      aria-hidden="true"
-                    />
-                    <div>
-                      <p className="text-[0.9rem] font-medium text-mist-100">{c.label}</p>
-                      <p className="mt-0.5 text-[0.8rem] text-mist-500">
-                        {c.org} · {c.note}
-                      </p>
-                    </div>
-                  </motion.li>
+                  <li key={c.id}>
+                    <CertificateCard cert={c} index={i} />
+                  </li>
                 ))}
               </ul>
             </>

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { navLinks, site } from '../data/site.js';
 import { EASE } from '../lib/motion.js';
@@ -9,7 +10,7 @@ export default function Navbar() {
   const reduce = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState('home');
+  const { pathname } = useLocation();
 
   // solidity + border appear once the hero is behind us
   useEffect(() => {
@@ -19,24 +20,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // highlight the section currently in view
+  // a new route should never leave the mobile sheet hanging open behind it
   useEffect(() => {
-    const ids = navLinks.map((l) => l.href.slice(1));
-    const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
-    if (!sections.length) return;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: '-45% 0px -45% 0px', threshold: [0, 0.2, 0.5, 1] },
-    );
-    sections.forEach((s) => io.observe(s));
-    return () => io.disconnect();
-  }, []);
+    setOpen(false);
+  }, [pathname]);
 
   // lock scroll, close on Escape, and move focus into/out of the sheet
   const toggleRef = useRef(null);
@@ -75,43 +62,45 @@ export default function Navbar() {
             scrolled ? 'mt-3 rounded-2xl glass py-2.5' : 'mt-0 py-5'
           }`}
         >
-          <a
-            href="#home"
+          <Link
+            to="/"
             className="group flex items-center gap-2.5 font-display text-sm font-semibold tracking-tight"
-            aria-label={`${site.name} — back to top`}
+            aria-label={`${site.name} — home`}
           >
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-mist-100 text-[0.7rem] font-bold text-ink-900 transition-transform duration-500 group-hover:rotate-[18deg]">
               {site.monogram}
             </span>
             <span className="hidden sm:inline">{site.shortName}</span>
-          </a>
+          </Link>
 
           <nav aria-label="Primary" className="hidden lg:block">
             <ul className="flex items-center gap-1">
-              {navLinks.map((l) => {
-                const id = l.href.slice(1);
-                const isActive = active === id;
-                return (
-                  <li key={l.href}>
-                    <a
-                      href={l.href}
-                      aria-current={isActive ? 'true' : undefined}
-                      className={`relative block rounded-full px-4 py-2 text-[0.8rem] transition-colors duration-300 ${
+              {navLinks.map((l) => (
+                <li key={l.to}>
+                  <NavLink
+                    to={l.to}
+                    end={l.end}
+                    className={({ isActive }) =>
+                      `relative block rounded-full px-4 py-2 text-[0.8rem] transition-colors duration-300 ${
                         isActive ? 'text-mist-100' : 'text-mist-500 hover:text-mist-100'
-                      }`}
-                    >
-                      {isActive && (
-                        <motion.span
-                          layoutId="nav-pill"
-                          className="absolute inset-0 -z-10 rounded-full bg-white/[0.06] ring-1 ring-white/10"
-                          transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-                        />
-                      )}
-                      {l.label}
-                    </a>
-                  </li>
-                );
-              })}
+                      }`
+                    }
+                  >
+                    {({ isActive }) => (
+                      <>
+                        {isActive && (
+                          <motion.span
+                            layoutId="nav-pill"
+                            className="absolute inset-0 -z-10 rounded-full bg-white/[0.06] ring-1 ring-white/10"
+                            transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                          />
+                        )}
+                        {l.label}
+                      </>
+                    )}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </nav>
 
@@ -120,7 +109,7 @@ export default function Navbar() {
                 already sets `inline-flex`, and two display utilities on one
                 element resolve by stylesheet order, not class order */}
             <span className="hidden sm:inline-flex">
-              <Button href="#contact" variant="accent" className="px-5 py-2.5 text-[0.8rem]">
+              <Button href="/contact" variant="accent" className="px-5 py-2.5 text-[0.8rem]">
                 Let&rsquo;s talk
               </Button>
             </span>
@@ -155,14 +144,14 @@ export default function Navbar() {
               <ul className="space-y-1">
                 {navLinks.map((l, i) => (
                   <motion.li
-                    key={l.href}
+                    key={l.to}
                     initial={{ opacity: 0, y: 22 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 12 }}
                     transition={{ duration: 0.5, ease: EASE, delay: 0.05 + i * 0.055 }}
                   >
-                    <a
-                      href={l.href}
+                    <Link
+                      to={l.to}
                       onClick={() => setOpen(false)}
                       className="flex items-baseline gap-4 border-b border-line-soft py-4 font-display text-3xl font-semibold text-mist-100 transition-colors hover:text-accent-400 sm:text-4xl"
                     >
@@ -170,7 +159,7 @@ export default function Navbar() {
                         0{i + 1}
                       </span>
                       {l.label}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
@@ -181,7 +170,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.42 }}
               >
-                <Button href="#contact" variant="accent" onClick={() => setOpen(false)}>
+                <Button href="/contact" variant="accent" onClick={() => setOpen(false)}>
                   Start a project
                 </Button>
                 <a

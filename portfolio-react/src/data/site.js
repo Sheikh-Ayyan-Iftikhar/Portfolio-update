@@ -23,13 +23,12 @@ export const site = {
   url: 'https://github.com/Sheikh-Ayyan-Iftikhar',
 };
 
+// real routes, not in-page anchors — the site is split across pages
 export const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#journey' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', to: '/', end: true },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Journey', to: '/journey' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 export const socials = [

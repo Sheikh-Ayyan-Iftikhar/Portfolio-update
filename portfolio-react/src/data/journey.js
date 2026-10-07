@@ -71,5 +71,9 @@ export const certifications = [
     label: 'HTML, CSS & JavaScript',
     org: 'Internee.pk Virtual Internship Platform',
     note: '2-month internship',
+    // the issued certificate itself, so the claim can be checked
+    image: '/certificates/internee-certificate.jpg',
+    imageAlt: 'Internee.pk completion certificate for the HTML, CSS and JavaScript virtual internship',
+    href: '/certificates/internee-certificate.jpg',
   },
 ];

@@ -22,10 +22,13 @@ function Core({ tier }) {
   const core = useRef();
   const ringA = useRef();
   const ringB = useRef();
+  const shell = useRef();
+  const group = useRef();
 
   useFrame((state, delta) => {
     const t = state.clock.elapsedTime;
     const d = Math.min(delta, 0.05);
+    const { pointer } = state;
 
     if (knot.current) knot.current.rotation.y += d * 0.16;
     if (knot.current) knot.current.rotation.x += d * 0.05;
@@ -38,12 +41,26 @@ function Core({ tier }) {
 
     if (ringA.current) ringA.current.rotation.z += d * 0.22;
     if (ringB.current) ringB.current.rotation.x += d * 0.16;
+
+    // shell counter-rotates against the knot for a parallax feel
+    if (shell.current) {
+      shell.current.rotation.y -= d * 0.05;
+      shell.current.rotation.x += d * 0.022;
+    }
+
+    // the whole assembly leans toward the pointer, damped so it trails
+    if (group.current) {
+      const tx = pointer.y * 0.16;
+      const ty = pointer.x * 0.22;
+      group.current.rotation.x += (tx - group.current.rotation.x) * d * 1.6;
+      group.current.rotation.y += (ty - group.current.rotation.y) * d * 1.6;
+    }
   });
 
   const detail = tier === 'high' ? 180 : tier === 'medium' ? 110 : 70;
 
   return (
-    <group>
+    <group ref={group}>
       {/* inner glowing core */}
       <mesh ref={core}>
         <icosahedronGeometry args={[0.72, tier === 'high' ? 2 : 1]} />
@@ -79,6 +96,19 @@ function Core({ tier }) {
       <mesh ref={ringB} rotation={[0, Math.PI / 3, Math.PI / 2.6]}>
         <torusGeometry args={[2.75, 0.01, 8, 96]} />
         <meshBasicMaterial color="#4d8dff" transparent opacity={0.3} />
+      </mesh>
+
+      {/* outer geodesic shell: a slow counter-rotating cage that reads as
+          depth around the knot without needing a texture */}
+      <mesh ref={shell}>
+        <icosahedronGeometry args={[3.15, tier === 'low' ? 1 : 2]} />
+        <meshBasicMaterial
+          color="#4d8dff"
+          wireframe
+          transparent
+          opacity={0.09}
+          toneMapped={false}
+        />
       </mesh>
     </group>
   );
@@ -124,6 +154,28 @@ function Particles({ tier }) {
   );
 }
 
+/**
+ * A key light that tracks the pointer, so the metal actually catches the
+ * cursor instead of sitting under fixed studio lighting.
+ */
+function PointerLight() {
+  const light = useRef();
+  const { pointer } = useThree();
+
+  useFrame((_, delta) => {
+    if (!light.current) return;
+    const d = Math.min(delta, 0.05);
+    const tx = pointer.x * 4.2;
+    const ty = pointer.y * 2.8 + 1.4;
+    const tz = 3.4;
+    light.current.position.x += (tx - light.current.position.x) * d * 3;
+    light.current.position.y += (ty - light.current.position.y) * d * 3;
+    light.current.position.z += (tz - light.current.position.z) * d * 3;
+  });
+
+  return <pointLight ref={light} position={[0, 1.4, 3.4]} intensity={14} distance={16} color="#bcd4ff" />;
+}
+
 function CameraRig() {
   const camera = useThree((s) => s.camera);
   const pointer = useThree((s) => s.pointer);
@@ -165,6 +217,7 @@ export default function Scene3D({ tier = 'high' }) {
         <pointLight position={[5, 3, -3]} intensity={18} distance={14} color="#8b5cf6" />
 
         <CameraRig />
+        <PointerLight />
 
         <Float speed={1.1} rotationIntensity={0.22} floatIntensity={0.5}>
           <Core tier={tier} />

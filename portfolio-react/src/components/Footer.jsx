@@ -1,4 +1,5 @@
 import { ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { navLinks, site, socials } from '../data/site.js';
 import SocialIcon from './SocialIcon.jsx';
 
@@ -12,10 +13,10 @@ export default function Footer() {
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           {/* identity */}
           <div className="max-w-sm">
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="group inline-flex items-center gap-2.5"
-              aria-label={`${site.name} — back to top`}
+              aria-label={`${site.name} — home`}
             >
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-mist-100 font-display text-[0.72rem] font-bold text-ink-900 transition-transform duration-500 group-hover:rotate-[18deg]">
                 {site.monogram}
@@ -23,7 +24,7 @@ export default function Footer() {
               <span className="font-display text-[0.95rem] font-semibold text-mist-100">
                 {site.name}
               </span>
-            </a>
+            </Link>
             <p className="mt-4 text-[0.85rem] leading-relaxed text-mist-500">{site.role}</p>
             <p className="mt-1 text-[0.8rem] text-mist-600">{site.location}</p>
 
@@ -52,22 +53,22 @@ export default function Footer() {
             </h2>
             <ul className="mt-4 grid grid-cols-2 gap-x-10 gap-y-2.5 sm:grid-cols-2">
               {navLinks.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
+                <li key={l.to}>
+                  <Link
+                    to={l.to}
                     className="text-[0.85rem] text-mist-500 transition-colors duration-300 hover:text-accent-400"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
-                <a
-                  href="#services"
+                <Link
+                  to="/#services"
                   className="text-[0.85rem] text-mist-500 transition-colors duration-300 hover:text-accent-400"
                 >
                   Services
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -94,16 +95,16 @@ export default function Footer() {
             >
               {site.email}
             </a>
-            <a
-              href="#home"
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="group inline-flex items-center gap-2 text-[0.78rem] text-mist-600 transition-colors hover:text-mist-300"
-              aria-label="Back to top"
             >
               Back to top
               <span className="grid h-8 w-8 place-items-center rounded-full border border-line transition-[transform,border-color] duration-300 group-hover:-translate-y-0.5 group-hover:border-accent-500/50">
                 <ArrowUp size={13} aria-hidden="true" />
               </span>
-            </a>
+            </button>
           </div>
         </div>
       </div>

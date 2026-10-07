@@ -7,6 +7,7 @@ import { useDeviceTier } from '../hooks/useMediaQuery.js';
 import { useMagnetic } from '../hooks/useMagnetic.js';
 import Button from './Button.jsx';
 import CountUp from './CountUp.jsx';
+import SceneBoundary from './SceneBoundary.jsx';
 
 // the 3D bundle is the heaviest thing on the page - keep it off the critical path
 const Scene3D = lazy(() => import('./Scene3D.jsx'));
@@ -49,9 +50,11 @@ export default function Hero() {
       </div>
 
       {sceneOn && (
-        <Suspense fallback={null}>
-          <Scene3D tier={tier} />
-        </Suspense>
+        <SceneBoundary>
+          <Suspense fallback={null}>
+            <Scene3D tier={tier} />
+          </Suspense>
+        </SceneBoundary>
       )}
 
       {/* readability scrim over the scene */}
@@ -97,12 +100,12 @@ export default function Hero() {
 
           <motion.div {...rise(0.42)} className="mt-10 flex flex-wrap items-center gap-3">
             <Magnetic strength={0.28}>
-              <Button href="#projects" variant="primary" icon={ArrowRight}>
+              <Button href="/projects" variant="primary" icon={ArrowRight}>
                 View my work
               </Button>
             </Magnetic>
             <Magnetic strength={0.22}>
-              <Button href="#contact" variant="ghost">
+              <Button href="/contact" variant="ghost">
                 Let&rsquo;s connect
               </Button>
             </Magnetic>

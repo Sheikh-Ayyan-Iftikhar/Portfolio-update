@@ -1,7 +1,9 @@
 import { forwardRef } from 'react';
+import { Link } from 'react-router-dom';
 
 /**
- * Button with magnetic pull. Renders as <a> when given href, <button> otherwise.
+ * Button with magnetic pull. Renders as <Link> for internal routes, <a> for
+ * external URLs and in-page hashes, and <button> otherwise.
  * All styling lives here so CTAs stay identical across the site.
  */
 export const Button = forwardRef(function Button(
@@ -40,14 +42,27 @@ export const Button = forwardRef(function Button(
     </>
   );
 
+  const style = { '--tx': 'var(--mx, 0px)', '--ty': 'var(--my, 0px)' };
+
   if (href) {
+    // an internal path is a client-side route; hashes and absolute URLs are not
+    const isRoute = href.startsWith('/') && !href.startsWith('//');
+
+    if (isRoute) {
+      return (
+        <Link ref={ref} to={href} className={cls} style={style} {...rest}>
+          {inner}
+        </Link>
+      );
+    }
+
     const external = /^https?:/.test(href);
     return (
       <a
         ref={ref}
         href={href}
         className={cls}
-        style={{ '--tx': 'var(--mx, 0px)', '--ty': 'var(--my, 0px)' }}
+        style={style}
         {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         {...rest}
       >
