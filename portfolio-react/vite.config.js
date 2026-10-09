@@ -7,6 +7,7 @@ export default defineConfig({
   server: { port: 5173, host: true },
   build: {
     target: 'es2020',
+    sourcemap: false,
     // The `three` chunk is ~240 kB gzip but is split out and dynamically
     // imported by Scene3D, so it never blocks first paint. Raise the warning
     // threshold rather than chase an unavoidable library size.
