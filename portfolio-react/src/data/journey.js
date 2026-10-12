@@ -6,6 +6,15 @@
 
 export const experience = [
   {
+    id: 'aplinode',
+    tag: 'Current',
+    role: 'Product Builder & GTM Engineer',
+    org: 'Aplinode',
+    period: 'Present',
+    detail:
+      'Building Conspera — a GTM intelligence platform that helps revenue teams identify, prioritize, and engage the right accounts. Own product strategy, GTM motion, and frontend architecture (React, TypeScript, Three.js).',
+  },
+  {
     id: 'aperaboost',
     tag: 'Leadership',
     role: 'Former Co-Founder & CTO',

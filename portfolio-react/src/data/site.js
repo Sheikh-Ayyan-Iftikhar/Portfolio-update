@@ -8,8 +8,8 @@ export const site = {
   name: 'Sheikh Ayyan Iftikhar',
   shortName: 'Ayyan',
   monogram: 'AI',
-  role: 'Frontend Developer & Creative Web Developer',
-  title: 'Python & Full-Stack Developer',
+  role: 'Product Builder at Aplinode — building Conspera (GTM Engineer)',
+  title: 'Product Builder & GTM Engineer',
   location: 'Karachi, Pakistan',
   availability: 'Available remotely',
   email: 'ayaniftikhar4567@gmail.com',
@@ -18,8 +18,8 @@ export const site = {
   resume: '/resume/resume.pdf',
   profilePhoto: '/profile.jpg',
   intro:
-    'I build modern, interactive and visually engaging web experiences that combine clean development with thoughtful design.',
-  bio: `I'm a Python and Full-Stack Developer with a strong frontend foundation, focused on building responsive, modern web interfaces with clean, maintainable code. I'm comfortable shipping end-to-end — from UI implementation to Python-based backend and scripting work.\n\nI co-founded two ventures, leading technical direction for client web products at both, and I've shipped 14+ live websites for clients. I'm currently studying Agentic AI and Spec-Driven Development at PIAIC.`,
+    'I build products that help teams ship faster. Currently building Conspera at Aplinode — a GTM intelligence platform. Previously co-founded AperaBoost & Markaaf Studio, shipped 14+ live websites.',
+  bio: `I'm a Product Builder at Aplinode, working on Conspera — a GTM intelligence platform that helps revenue teams find and close the right accounts. My role spans product strategy, GTM engineering, and building the frontend architecture.\n\nPreviously I co-founded AperaBoost (CTO) and Markaaf Studio, leading technical direction for client web products and shipping 14+ live websites — from business sites to interactive frontend tools. I'm currently studying Agentic AI and Spec-Driven Development at PIAIC.`,
   url: 'https://github.com/Sheikh-Ayyan-Iftikhar',
 };
 
