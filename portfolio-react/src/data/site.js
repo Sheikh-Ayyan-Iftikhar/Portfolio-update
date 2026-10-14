@@ -33,12 +33,11 @@ export const navLinks = [
 
 export const socials = [
   { label: 'GitHub', href: 'https://github.com/Sheikh-Ayyan-Iftikhar', icon: 'github', placeholder: false },
-  { label: 'Facebook', href: 'https://www.facebook.com/AyanIftikhar.dev/', icon: 'facebook', placeholder: false },
-  // x.com/AYAN__Iftikhar returns HTTP 404 (verified against a known-good
-  // control profile), so it is shown inert rather than as a dead link.
-  { label: 'X', href: null, icon: 'twitter', placeholder: true },
-  // no verified LinkedIn URL - rendered inert until one is provided
-  { label: 'LinkedIn', href: null, icon: 'linkedin', placeholder: true },
+  { label: 'Facebook', href: 'https://www.facebook.com/Sheikh.Ayyan.fb/', icon: 'facebook', placeholder: false },
+  { label: 'Instagram', href: 'https://www.instagram.com/sheikh.ayyan.iftikhar/', icon: 'instagram', placeholder: false },
+  { label: 'X', href: 'https://x.com/Sheikh__Ayyan', icon: 'twitter', placeholder: false },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/Sheikh-Ayyan-Iftikhar', icon: 'linkedin', placeholder: false },
+  { label: 'Saylani Alumni', href: 'https://alumni.saylaniit.com/sheikh_ayyan', icon: 'graduation-cap', placeholder: false },
   { label: 'Email', href: 'mailto:ayaniftikhar4567@gmail.com', icon: 'mail', placeholder: false },
 ];
 
