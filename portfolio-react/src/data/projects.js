@@ -68,6 +68,21 @@ export const projects = [
     featured: false,
     metric: { label: 'Type', value: 'Multi-interface' },
   },
+  {
+    id: 'code-analyzer',
+    title: 'Code Analyzer',
+    kicker: 'Developer tool',
+    description:
+      'A code analysis tool that helps developers understand and improve their codebase with automated insights.',
+    longDescription:
+      'Built to give developers quick visibility into code quality, structure, and potential issues. Runs static analysis on the codebase and presents findings in a clean, actionable interface.',
+    url: 'https://code-analyzer-hazel.vercel.app/',
+    repo: null,
+    tech: ['TypeScript', 'React', 'AST Parsing', 'Vercel'],
+    accent: '#f59e0b',
+    featured: false,
+    metric: { label: 'Focus', value: 'Static analysis' },
+  },
 ];
 
 export const featuredProject = projects.find((p) => p.featured) ?? projects[0];
