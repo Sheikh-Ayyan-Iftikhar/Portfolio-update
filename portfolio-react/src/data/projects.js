@@ -83,6 +83,22 @@ export const projects = [
     featured: false,
     metric: { label: 'Focus', value: 'Static analysis' },
   },
+  {
+    id: 'letmeserve',
+    title: 'LetMeServe',
+    kicker: 'Coming soon',
+    description:
+      'A platform that connects you with verified local professionals — plumbers, electricians, cleaners, AC technicians, and more — in just a few taps.',
+    longDescription:
+      'LetMeServe eliminates the hassle of finding reliable home service providers. Browse verified professionals, see real reviews, compare transparent pricing, and book instantly. No more calling around, no surprise fees — just the right pro for the job, when you need them.',
+    url: '#',
+    repo: null,
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind', 'TypeScript', 'Prisma'],
+    accent: '#ec4899',
+    featured: false,
+    metric: { label: 'Status', value: 'Private beta' },
+    comingSoon: true,
+  },
 ];
 
 export const featuredProject = projects.find((p) => p.featured) ?? projects[0];
