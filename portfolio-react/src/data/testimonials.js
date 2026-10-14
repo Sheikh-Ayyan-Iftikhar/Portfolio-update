@@ -2,7 +2,7 @@ export const testimonials = [
   {
     id: 't1',
     name: 'Iftikhar Ahmed',
-    role: 'Owner, Ahmed Hardware Store',
+    role: 'CEO, Owner & Founder, Ayan Hardware',
     avatar: 'IA',
     content:
       'Ayyan built our inventory & sales system. What used to be manual registers and guesswork is now real-time stock, auto reorder alerts, and daily profit reports on my phone. It\'s the best way for future covering — I can see my whole business in one screen, even when I\'m not at the shop.',
