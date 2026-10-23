@@ -28,13 +28,14 @@ export const navLinks = [
   { label: 'Home', to: '/', end: true },
   { label: 'Projects', to: '/projects' },
   { label: 'Journey', to: '/journey' },
+  { label: 'Reviews', to: '/reviews' },
   { label: 'Contact', to: '/contact' },
 ];
 
 export const socials = [
   { label: 'GitHub', href: 'https://github.com/Sheikh-Ayyan-Iftikhar', icon: 'github', placeholder: false },
-  { label: 'Facebook', href: 'https://www.facebook.com/Sheikh.Ayyan.fb/', icon: 'facebook', placeholder: false },
-  { label: 'Instagram', href: 'https://www.instagram.com/sheikh.ayyan.iftikhar/', icon: 'instagram', placeholder: false },
+  { label: 'Facebook', href: 'https://www.facebook.com/Sheikh.Ayyan.fb.fb/', icon: 'facebook', placeholder: false },
+  { label: 'Instagram', href: 'https://www.instagram.com/sheikh.ayyan.iftikhar.ig/', icon: 'instagram', placeholder: false },
   { label: 'X', href: 'https://x.com/Sheikh__Ayyan', icon: 'twitter', placeholder: false },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/Sheikh-Ayyan-Iftikhar', icon: 'linkedin', placeholder: false },
   { label: 'Saylani Alumni', href: 'https://alumni.saylaniit.com/sheikh_ayyan', icon: 'graduation-cap', placeholder: false },
