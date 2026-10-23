@@ -102,9 +102,28 @@ export default function Hero() {
                 <span className="font-display text-sm font-semibold text-mist-100">Product Builder at <span className="text-accent-300">Aplinode</span></span>
               </div>
               <span className="text-mist-600" aria-hidden="true">|</span>
-              <div className="flex items-center gap-1.5">
+              <div className="relative flex items-center gap-1.5" style={{ position: 'relative' }}>
                 <Zap size={16} className="text-violet-400" aria-hidden="true" />
                 <span className="font-display text-sm font-semibold text-mist-100">GTM Engineer at <span className="text-violet-300">Conspera</span></span>
+                {/* Conspera description tooltip */}
+                <motion.span
+                  className="ml-1 inline-flex items-center justify-center w-5 h-5 rounded-full bg-violet-500/20 text-violet-300 text-[0.6rem] font-medium cursor-help transition-colors hover:bg-violet-500/30"
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+                  aria-label="Conspera: A platform for builders to manage their time and work"
+                >
+                  ?
+                </motion.span>
+                <motion.div
+                  className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 rounded-lg bg-ink-900 border border-violet-500/30 shadow-[0_16px_40px_-20px_rgba(139,92,246,0.3)] whitespace-nowrap text-[0.7rem] text-mist-300 opacity-0 pointer-events-none"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.3 }}
+                >
+                  A platform for builders to manage their time & work
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-4 border-transparent border-t-violet-500/30" />
+                </motion.div>
               </div>
             </div>
           </motion.div>
