@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, MapPin } from 'lucide-react';
+import { ArrowRight, MapPin, Briefcase, Zap } from 'lucide-react';
 import { site, stats } from '../data/site.js';
 import { EASE } from '../lib/motion.js';
 import { useDeviceTier } from '../hooks/useMediaQuery.js';
@@ -83,6 +83,31 @@ export default function Hero() {
             <span className="block text-mist-100">{firstName}</span>
             <span className="text-gradient block">{lastName}</span>
           </motion.h1>
+
+          {/* Current role highlight */}
+          <motion.div
+            {...rise(0.22)}
+            className="mt-5 inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-accent-500/15 via-violet-500/10 to-transparent border border-accent-500/30 shadow-[0_8px_30px_-10px_rgba(77,141,255,0.2)]"
+          >
+            <div className="relative flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              <span className="font-sans text-[0.65rem] tracking-[0.15em] uppercase text-emerald-300 font-medium">Currently</span>
+            </div>
+            <div className="flex items-center gap-3 pl-3 border-l border-accent-500/30">
+              <div className="flex items-center gap-1.5">
+                <Briefcase size={16} className="text-accent-400" aria-hidden="true" />
+                <span className="font-display text-sm font-semibold text-mist-100">Product Builder at <span className="text-accent-300">Aplinode</span></span>
+              </div>
+              <span className="text-mist-600" aria-hidden="true">|</span>
+              <div className="flex items-center gap-1.5">
+                <Zap size={16} className="text-violet-400" aria-hidden="true" />
+                <span className="font-display text-sm font-semibold text-mist-100">GTM Engineer at <span className="text-violet-300">Conspera</span></span>
+              </div>
+            </div>
+          </motion.div>
 
           <motion.p
             {...rise(0.26)}
