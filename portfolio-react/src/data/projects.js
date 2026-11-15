@@ -9,6 +9,51 @@
 
 export const projects = [
   {
+    id: 'vibenplay',
+    title: 'VibenPlay',
+    kicker: 'Collaborative project',
+    description:
+      'A collaborative platform for music and creative sharing.',
+    longDescription:
+      'VibenPlay enables users to discover, share, and collaborate on music and creative projects in real-time. The platform focuses on community-driven content and seamless sharing experiences.',
+    url: 'https://www.vibenplay.fun/',
+    repo: null,
+    tech: ['React', 'Node.js', 'WebSockets', 'CSS3'],
+    accent: '#10b981',
+    featured: false,
+    metric: { label: 'Type', value: 'Collaborative' },
+  },
+  {
+    id: 'super-tic-tac-toe',
+    title: 'Super Tic Tac Toe',
+    kicker: 'Multiplayer game',
+    description:
+      'An enhanced version of classic Tic Tac Toe with multiplayer capabilities and AI opponents.',
+    longDescription:
+      'Super Tic Tac Toe adds new dimensions to the classic game with multiple grids, competitive multiplayer modes, and challenging AI opponents. Test your strategy across connected boards for a more engaging experience.',
+    url: 'https://super-tic-tac-toe-kappa.vercel.app/',
+    repo: null,
+    tech: ['React', 'TypeScript', 'WebSockets', 'Canvas'],
+    accent: '#ef4444',
+    featured: false,
+    metric: { label: 'Mode', value: 'Multiplayer' },
+  },
+  {
+    id: 'chemverse-wine',
+    title: 'ChemVerse Wine',
+    kicker: 'Educational platform',
+    description:
+      'A unique platform combining chemistry concepts with wine appreciation and education.',
+    longDescription:
+      'ChemVerse Wine explores the intersection of chemistry and wine, offering educational content about the chemical processes behind wine production, tasting notes, and pairing suggestions. Designed for enthusiasts curious about the science behind their favorite beverages.',
+    url: 'https://chemverse-wine.vercel.app/',
+    repo: null,
+    tech: ['React', 'Node.js', 'Python', 'Django', 'Chemistry API'],
+    accent: '#8b5cf6',
+    featured: false,
+    metric: { label: 'Focus', value: 'Education' },
+  },
+  {
     id: 'drag-drop',
     title: 'Drag & Drop File Uploader',
     kicker: 'Interactive interface',
@@ -69,6 +114,22 @@ export const projects = [
     metric: { label: 'Type', value: 'Multi-interface' },
   },
   {
+    id: 'letmeserve',
+    title: 'LetMeServe',
+    kicker: 'Coming soon',
+    description:
+      'A platform that connects you with verified local professionals — plumbers, electricians, cleaners, AC technicians, and more — in just a few taps.',
+    longDescription:
+      'LetMeServe eliminates the hassle of finding reliable home service providers. Browse verified professionals, see real reviews, compare transparent pricing, and book instantly. No more calling around, no surprise fees — just the right pro for the job, when you need them.',
+    url: '#',
+    repo: null,
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind', 'TypeScript', 'Prisma'],
+    accent: '#ec4899',
+    featured: false,
+    metric: { label: 'Status', value: 'Private beta' },
+    comingSoon: true,
+  },
+  {
     id: 'code-analyzer',
     title: 'Code Analyzer',
     kicker: 'Developer tool',
@@ -84,20 +145,19 @@ export const projects = [
     metric: { label: 'Focus', value: 'Static analysis' },
   },
   {
-    id: 'letmeserve',
-    title: 'LetMeServe',
-    kicker: 'Coming soon',
+    id: 'prompt-analizer',
+    title: 'Prompt Analizer',
+    kicker: 'AI tool',
     description:
-      'A platform that connects you with verified local professionals — plumbers, electricians, cleaners, AC technicians, and more — in just a few taps.',
+      'A tool for managing and injecting prompts into AI workflows.',
     longDescription:
-      'LetMeServe eliminates the hassle of finding reliable home service providers. Browse verified professionals, see real reviews, compare transparent pricing, and book instantly. No more calling around, no surprise fees — just the right pro for the job, when you need them.',
-    url: '#',
+      'Prompt Analizer streamlines the process of creating, managing, and injecting prompts into various AI models and workflows. Designed for developers and power users who work extensively with AI-assisted coding and content generation.',
+    url: 'https://prompt-injector-three.vercel.app/',
     repo: null,
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Tailwind', 'TypeScript', 'Prisma'],
-    accent: '#ec4899',
+    tech: ['React', 'Python', 'AI APIs', 'Vercel'],
+    accent: '#8b5cf6',
     featured: false,
-    metric: { label: 'Status', value: 'Private beta' },
-    comingSoon: true,
+    metric: { label: 'Type', value: 'AI tool' },
   },
 ];
 
