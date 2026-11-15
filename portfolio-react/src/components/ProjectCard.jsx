@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Bell } from 'lucide-react';
 import { EASE, viewportOnce } from '../lib/motion.js';
 
 /**
@@ -11,6 +11,7 @@ import { EASE, viewportOnce } from '../lib/motion.js';
 export default function ProjectCard({ project, index = 0 }) {
   const ref = useRef(null);
   const reduce = useReducedMotion();
+  const isComingSoon = project.comingSoon;
 
   const handleMove = (e) => {
     const el = ref.current;
@@ -49,17 +50,24 @@ export default function ProjectCard({ project, index = 0 }) {
         onPointerMove={handleMove}
         onPointerLeave={handleLeave}
         style={{ '--rx': '0deg', '--ry': '0deg', '--mx': '50%', '--my': '50%' }}
-        className="group relative h-full rounded-2xl border border-line bg-ink-850/70 p-6 transition-[border-color,box-shadow,transform] duration-200 ease-out hover:border-accent-500/40 hover:shadow-[0_28px_60px_-30px_rgba(77,141,255,0.4)] sm:p-7 [transform:rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))_translateZ(0)]"
+        className={`group relative h-full rounded-2xl border border-line bg-ink-850/70 p-6 transition-[border-color,box-shadow,transform] duration-200 ease-out sm:p-7 [transform:rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))_translateZ(0)] ${isComingSoon ? 'ring-1 ring-accent-500/30' : 'hover:border-accent-500/40 hover:shadow-[0_28px_60px_-30px_rgba(77,141,255,0.4)]'}`}
       >
         {/* cursor-following glow */}
         <span
           className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{
             background:
-              'radial-gradient(280px circle at var(--mx) var(--my), rgba(77,141,255,0.13), transparent 70%)',
+              `radial-gradient(280px circle at var(--mx) var(--my), ${accent}22, transparent 70%)`,
           }}
           aria-hidden="true"
         />
+
+        {/* coming soon badge */}
+        {isComingSoon && (
+          <span className="absolute -top-3 right-4 z-10 px-3 py-1 rounded-full text-[0.6rem] font-semibold uppercase tracking-[0.15em] bg-gradient-to-r from-accent-500 via-accent-600 to-violet-500 text-white shadow-[0_8px_30px_-10px_rgba(236,72,153,0.5)] animate-pulse">
+            Coming Soon
+          </span>
+        )}
 
         {/* visual preview, built from a gradient + type rather than a
             screenshot so nothing is fabricated or 404-prone */}
@@ -81,6 +89,22 @@ export default function ProjectCard({ project, index = 0 }) {
             }}
             aria-hidden="true"
           />
+          {isComingSoon && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+                className="text-center px-6"
+              >
+                <div className="mb-3 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-500/20 to-violet-500/20 border border-accent-500/30">
+                  <Bell size={28} className="text-accent-400" aria-hidden="true" />
+                </div>
+                <p className="font-display text-lg font-semibold text-white/90">Private Beta</p>
+                <p className="mt-1 text-sm text-mist-500">Early access soon</p>
+              </motion.div>
+            </div>
+          )}
           <div className="absolute inset-x-0 top-0 flex items-center gap-1.5 p-3.5">
             <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
             <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
@@ -118,21 +142,31 @@ export default function ProjectCard({ project, index = 0 }) {
             ))}
           </ul>
 
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cursor="link"
-            className="mt-6 inline-flex items-center gap-2 text-[0.82rem] font-medium text-mist-300 transition-colors duration-300 hover:text-accent-400"
-            aria-label={`Open ${title} live demo in a new tab`}
-          >
-            Live demo
-            <ArrowUpRight
-              size={14}
-              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              aria-hidden="true"
-            />
-          </a>
+          {isComingSoon ? (
+            <button
+              className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-white bg-gradient-to-r from-accent-500 via-accent-600 to-violet-500 shadow-[0_8px_30px_-10px_rgba(236,72,153,0.4)] hover:from-accent-400 hover:via-accent-500 hover:to-violet-400 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+              aria-label={`Get notified when ${title} launches`}
+            >
+              <Bell size={14} aria-hidden="true" className="animate-bounce" />
+              Notify me
+            </button>
+          ) : (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="link"
+              className="mt-6 inline-flex items-center gap-2 text-[0.82rem] font-medium text-mist-300 transition-colors duration-300 hover:text-accent-400"
+              aria-label={`Open ${title} live demo in a new tab`}
+            >
+              Live demo
+              <ArrowUpRight
+                size={14}
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              />
+            </a>
+          )}
         </div>
       </div>
     </motion.article>

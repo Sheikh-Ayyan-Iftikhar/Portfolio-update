@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
 import JourneyPage from './pages/JourneyPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
+import ReviewsPage from './pages/ReviewsPage.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 // only pull these in once the curtain has lifted
@@ -80,6 +81,7 @@ export default function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/journey" element={<JourneyPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
