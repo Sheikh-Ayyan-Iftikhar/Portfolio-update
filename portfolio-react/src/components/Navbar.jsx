@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { navLinks, site } from '../data/site.js';
 import { EASE } from '../lib/motion.js';
 import Button from './Button.jsx';
 
@@ -72,7 +73,36 @@ export default function Navbar() {
             <span className="hidden sm:inline">{site.shortName}</span>
           </Link>
 
-          
+          <nav aria-label="Primary" className="hidden lg:block">
+            <ul className="flex items-center gap-1">
+              {navLinks.map((l) => (
+                <li key={l.to}>
+                  <NavLink
+                    to={l.to}
+                    end={l.end}
+                    className={({ isActive }) =>
+                      `relative block rounded-full px-4 py-2 text-[0.8rem] transition-colors duration-300 ${
+                        isActive ? 'text-mist-100' : 'text-mist-500 hover:text-mist-100'
+                      }`
+                    }
+                  >
+                    {({ isActive }) => (
+                      <>
+                        {isActive && (
+                          <motion.span
+                            layoutId="nav-pill"
+                            className="absolute inset-0 -z-10 rounded-full bg-white/[0.06] ring-1 ring-white/10"
+                            transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                          />
+                        )}
+                        {l.label}
+                      </>
+                    )}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           <div className="flex items-center gap-2">
             {/* wrap rather than putting `hidden` on Button: Button's base class
@@ -110,7 +140,47 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.28, ease: EASE }}
           >
+            <nav aria-label="Mobile" className="flex h-full flex-col justify-center px-8">
+              <ul className="space-y-1">
+                {navLinks.map((l, i) => (
+                  <motion.li
+                    key={l.to}
+                    initial={{ opacity: 0, y: 22 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 12 }}
+                    transition={{ duration: 0.5, ease: EASE, delay: 0.05 + i * 0.055 }}
+                  >
+                    <Link
+                      to={l.to}
+                      onClick={() => setOpen(false)}
+                      className="flex items-baseline gap-4 border-b border-line-soft py-4 font-display text-3xl font-semibold text-mist-100 transition-colors hover:text-accent-400 sm:text-4xl"
+                    >
+                      <span className="font-sans text-[0.65rem] tracking-[0.2em] text-mist-600">
+                        0{i + 1}
+                      </span>
+                      {l.label}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
 
+              <motion.div
+                className="mt-10 flex flex-col gap-3"
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.42 }}
+              >
+                <Button href="/contact" variant="accent" onClick={() => setOpen(false)}>
+                  Start a project
+                </Button>
+                <a
+                  href={`mailto:${site.email}`}
+                  className="text-center text-sm text-mist-500 transition-colors hover:text-mist-100"
+                >
+                  {site.email}
+                </a>
+              </motion.div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
