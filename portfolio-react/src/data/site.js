@@ -13,8 +13,8 @@ export const site = {
   location: 'Karachi, Pakistan',
   availability: 'Available remotely',
   email: 'ayaniftikhar4567@gmail.com',
-  phone: '03361026803',
-  phoneLabel: '0336 1026803',
+  phone: '03712312453',
+  phoneLabel: '0371 2312453',
   resume: '/resume/resume.pdf',
   profilePhoto: '/profile.jpg',
   intro:
